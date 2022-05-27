@@ -9,23 +9,25 @@
 * 
 * 고객의 계좌정보 : 계좌번호, 고객이름, 잔액
 */
+const int NAME_LEN = 20;
+
+enum { MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE, EXIT };
 
 int main();
-void MainProcess();
 
 class Customer
 {
 private:
-	int account; //계좌번호
+	int accID; //계좌번호
 	int balance; //잔액
-	char* name; //이름
+	char cusName[NAME_LEN]; //이름
 
 public:
 	Customer();
 	~Customer();
-	void MakeAccount(int account, int balance, char* name); //계좌개설
-	void Deposit(int money); //입금
-	int Withdraw(int money); //출금
+	void MakeAccount(); //계좌개설
+	void DepositMoney(int money); //입금
+	int WithdrawMoney(int money); //출금
 	int ShowBalance(); //잔액조회
 	void ShowCustomerInfomation(); //고객정보 보기
 };
